@@ -73,8 +73,8 @@ public partial class Login : System.Web.UI.Page
             sq.Parameters.Add("@title", itemname.Text);
             sq.Parameters.Add("@description", description.Text);
             sq.Parameters.Add("@ScheduleDate", scheduleddate.Text);
-            sq.Parameters.Add("@Latitude", Convert.ToDouble(latt.Text));
-            sq.Parameters.Add("@Longitude", Convert.ToDouble(longt.Text));
+            sq.Parameters.Add("@Latitude",Convert.ToString(Convert.ToDouble(latt.Text)));
+            sq.Parameters.Add("@Longitude", Convert.ToString(Convert.ToDouble(longt.Text)));
             sq.Parameters.Add("@Address", address);
             sc.Open();
             if (sc.State == ConnectionState.Open)
@@ -102,7 +102,7 @@ public partial class Login : System.Web.UI.Page
                 }
                 sc.Close();
             }
-    
+
         }
     }
 
@@ -140,4 +140,4 @@ public partial class Login : System.Web.UI.Page
         zoomcs = 5;
         ScriptManager.RegisterStartupScript(this, this.GetType(), "myscript", "initializel(" + lat + "," + lng + "," + zoomcs + ");", true);
     }
-} 
+}
